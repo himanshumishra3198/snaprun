@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import InputContainer from "./components/InputContainer";
+import OutputContainer from "./components/OutputContainer";
+import Editor from "./components/Editor";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  let [code, setCode] = useState("");
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="grid grid-cols-3 grid-rows-8 h-screen gap-2 bg-grey-800">
+      <div className="col-span-3 row-span-1 p-8">
+        <Navbar />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="grid grid-cols-3 col-span-3 row-span-7 bg-grey-800">
+        <div className="col-span-2 bg-grey-800 border-r-2 border-green-900">
+          <div className="border-y-2 border-green-900">language</div>
+          <Editor />
+        </div>
+
+        <div className="grid grid-rows-5 bg-grey-800">
+          <div className="row-span-2">
+            <InputContainer />
+          </div>
+          <div className="row-span-3">
+            <OutputContainer />
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
