@@ -2,9 +2,11 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-text"; // Language mode
 import "ace-builds/src-noconflict/theme-monokai"; // Theme
 import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { testCaseAtom } from "../atoms/compiler-atoms";
 
 function InputContainer() {
-  let [testCase, setTestCase] = useState("Enter input here");
+  let [testCase, setTestCase] = useRecoilState(testCaseAtom);
 
   return (
     <div>

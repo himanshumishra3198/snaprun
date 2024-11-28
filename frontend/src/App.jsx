@@ -4,9 +4,17 @@ import OutputContainer from "./components/OutputContainer";
 import Editor from "./components/Editor";
 import Navbar from "./components/Navbar";
 import LanguageDropdown from "./components/LanguageDropdown";
+import { RecoilRoot } from "recoil";
 
 function App() {
-  let [code, setCode] = useState("");
+  return (
+    <RecoilRoot>
+      <MainApp />
+    </RecoilRoot>
+  );
+}
+
+function MainApp() {
   return (
     <div className="grid grid-cols-3 grid-rows-8 h-screen gap-2 bg-grey-800">
       <div className="col-span-3 row-span-1 p-4">

@@ -3,9 +3,11 @@ import { useState } from "react";
 // Import themes and modes
 import "ace-builds/src-noconflict/mode-javascript"; // Language mode
 import "ace-builds/src-noconflict/theme-monokai"; // Theme
+import { useRecoilState, useRecoilValue } from "recoil";
+import { codeAtom } from "../atoms/compiler-atoms";
 
 function Editor() {
-  const [code, setCode] = useState("// Start typing...");
+  const [code, setCode] = useRecoilState(codeAtom);
 
   return (
     <AceEditor

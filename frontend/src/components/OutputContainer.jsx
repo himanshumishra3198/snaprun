@@ -2,9 +2,11 @@ import { useState } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-text"; // Language mode
 import "ace-builds/src-noconflict/theme-monokai"; // Theme
+import { useRecoilState } from "recoil";
+import { testCaseOutputAtom } from "../atoms/compiler-atoms";
 
 function OutputContainer() {
-  let [output, setOutput] = useState("// output");
+  let [output, setOutput] = useRecoilState(testCaseOutputAtom);
 
   return (
     <div>

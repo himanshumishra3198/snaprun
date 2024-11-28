@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { languageAtom } from "../atoms/compiler-atoms";
+import { useRecoilState } from "recoil";
 
 const LanguageDropdown = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("Select a language");
+  const [selectedLanguage, setSelectedLanguage] = useRecoilState(languageAtom);
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = ["C", "C++", "Java", "JavaScript", "Python", "Go"];
